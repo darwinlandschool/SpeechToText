@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Голос у текст</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <img class="brand-logo" src="assets/logo.png" alt="DarwinLand">
+  <img class="brand-line" src="assets/line.svg" alt="" aria-hidden="true">
+
+  <main class="app" aria-labelledby="app-title">
+    <section class="workspace">
+      <header class="topbar">
+        <div class="title-block">
+          <h1 id="app-title">Голос у текст</h1>
+          <p class="subtitle">Говори — застосунок одразу перетворить твої слова на текст</p>
+        </div>
+      </header>
+
+      <section class="recorder" aria-label="Панель запису">
+        <button class="mic-button" id="micButton" type="button" aria-label="Запустити запис">
+          <span class="pulse-ring" aria-hidden="true"></span>
+          <svg class="mic-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Z"></path>
+            <path d="M19 11a7 7 0 0 1-14 0"></path>
+            <path d="M12 18v3"></path>
+            <path d="M8 21h8"></path>
+          </svg>
+        </button>
+
+        <div class="status" id="statusIndicator" role="status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="statusText">Готово до запису</span>
+        </div>
+      </section>
+
+      <section class="transcript-panel" aria-label="Розпізнаний текст">
+        <div class="actions">
+          <button class="secondary-button" id="copyButton" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            Копіювати
+          </button>
+          <button class="secondary-button danger" id="clearButton" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6h18"></path>
+              <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+              <path d="M10 11v6"></path>
+              <path d="M14 11v6"></path>
+            </svg>
+            Очистити
+          </button>
+        </div>
+
+        <textarea
+          id="transcript"
+          spellcheck="true"
+          placeholder="Тут з'явиться розпізнаний текст..."
+          aria-label="Розпізнаний текст"
+        ></textarea>
+      </section>
+
+      <p class="message" id="message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
